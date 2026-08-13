@@ -1,0 +1,6 @@
+{
+  "name": "module-federation-vite-singleton-repro",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@11.21.0"
+}
