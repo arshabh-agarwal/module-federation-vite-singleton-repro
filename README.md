@@ -19,12 +19,22 @@ Open http://localhost:5174 in a browser with devtools console open.
 
 ## Configuration
 
-`shared-lib` is declared identically on both `host` and `remote`:
+`host` declares `shared-lib` as an eager singleton:
 
 ```js
 shared: {
   'shared-lib': {
     eager: true,
+    singleton: true
+  }
+}
+```
+
+`remote` declares `shared-lib` as a (lazy) singleton:
+
+```js
+shared: {
+  'shared-lib': {
     singleton: true
   }
 }
@@ -63,3 +73,10 @@ Full console output when loading http://localhost:5174:
 ```
 
 No shared-module version-mismatch warning is logged by the federation runtime.
+
+## Note on `eager`
+
+The same double-evaluation occurs regardless of whether `remote` sets `eager: true`
+for `shared-lib` or not. This repo uses the more conventional pattern (host eager,
+remote lazy) shown above. A version with `eager: true` on both `host` and `remote`
+produces the identical result.

@@ -6,7 +6,6 @@ export default {
   },
   shared: {
     'shared-lib': {
-      eager: true,
       singleton: true
     }
   },
